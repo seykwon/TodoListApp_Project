@@ -206,19 +206,17 @@ public class TodoList {
 				t.setId(id);
 				t.setCurrent_date(current_date);
 				SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd");
-				try {
-					Date c_date = f.parse(f.format(new Date()));
-					Date d_date = f.parse(due_date);
-					long subDate = d_date.getTime() - c_date.getTime();
-					long calDate = subDate / (24 * 60 * 60 * 1000);
-					if (calDate <= 7 && calDate > -1)
-						list.add(t);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+				Date c_date = f.parse(f.format(new Date()));
+				Date d_date = f.parse(due_date);
+				long subDate = d_date.getTime() - c_date.getTime();
+				long calDate = subDate / (24 * 60 * 60 * 1000);
+				if (calDate <= 7 && calDate > -1)
+					list.add(t);
 			}
 			stmt.close();
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		return list;
@@ -245,19 +243,17 @@ public class TodoList {
 				t.setId(id);
 				t.setCurrent_date(current_date);
 				SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd");
-				try {
-					Date c_date = f.parse(f.format(new Date()));
-					Date d_date = f.parse(due_date);
-					long subDate = d_date.getTime() - c_date.getTime();
-					long calDate = subDate / (24 * 60 * 60 * 1000);
-					if (calDate <= day && calDate > -1)
-						list.add(t);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+				Date c_date = f.parse(f.format(new Date()));
+				Date d_date = f.parse(due_date);
+				long subDate = d_date.getTime() - c_date.getTime();
+				long calDate = subDate / (24 * 60 * 60 * 1000);
+				if (calDate <= day && calDate > -1)
+					list.add(t);
 			}
 			stmt.close();
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		return list;
